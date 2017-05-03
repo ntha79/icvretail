@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="Sales"
+          insertBefore="administration">
+        <item screen="icvretail$Invoices.browse"/>
+    </menu>
+    <menu id="Purchasing"
+          insertBefore="administration">
+        <item screen="icvretail$Purchases.browse"/>
+    </menu>
+    <menu id="Catalogs"
+          insertBefore="administration">
+        <item screen="icvretail$Counterparties.browse"/>
+        <item screen="icvretail$Products.browse"/>
+        <item screen="icvretail$Warehouses.browse"/>
+    </menu>
+    <menu id="reports"
+          insertBefore="administration">
+        <item screen="icvretail$WarehouseBalance.browse"/>
+    </menu>
+</menu-config>

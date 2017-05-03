@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.icvretail.web.catalogs.counterparties.CounterpartiesEdit"
+        datasource="counterpartiesDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.icvretail.web.catalogs.counterparties">
+    <dsContext>
+        <datasource id="counterpartiesDs"
+                    class="com.company.icvretail.entity.catalogs.Counterparties"
+                    view="counterparties-view"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="counterpartiesDs">
+            <column width="250px">
+                <field property="number"/>
+                <field property="description"/>
+                <field property="address"/>
+                <field property="telephone"/>
+                <field property="email"/>
+                <field property="isClient"/>
+                <field property="isSupplier"/>
+                <field property="note"
+                       rows="5"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

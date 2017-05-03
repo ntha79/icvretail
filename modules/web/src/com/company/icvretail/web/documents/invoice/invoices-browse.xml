@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.icvretail.web.documents.invoice.InvoicesBrowse"
+        focusComponent="invoicesesTable"
+        lookupComponent="invoicesesTable"
+        messagesPack="com.company.icvretail.web.documents">
+    <dsContext>
+        <groupDatasource id="invoicesesDs"
+                         class="com.company.icvretail.entity.documents.invoicedoc.Invoices"
+                         view="invoices-view">
+            <query>
+                <![CDATA[select e from icvretail$Invoices e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="invoicesesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="invoicesesTable"
+                datasource="invoicesesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="invoicesesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+            </actions>
+            <columns>
+                <column id="number"/>
+                <column id="prefixNumber"/>
+                <column id="date"/>
+                <column id="description"/>
+                <column id="counterparty"/>
+                <column id="warehouse"/>
+                <column id="note"/>
+            </columns>
+            <rows datasource="invoicesesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="invoicesesTable.create"/>
+                <button id="editBtn"
+                        action="invoicesesTable.edit"/>
+                <button id="removeBtn"
+                        action="invoicesesTable.remove"/>
+                <button id="refreshBtn"
+                        action="invoicesesTable.refresh"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.icvretail.web.catalogs.counterparties.CounterpartiesBrowse"
+        focusComponent="counterpartiesesTable"
+        lookupComponent="counterpartiesesTable"
+        messagesPack="com.company.icvretail.web.catalogs.counterparties">
+    <dsContext>
+        <groupDatasource id="counterpartiesesDs"
+                         class="com.company.icvretail.entity.catalogs.Counterparties"
+                         view="counterparties-view">
+            <query>
+                <![CDATA[select e from icvretail$Counterparties e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="counterpartiesesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="counterpartiesesTable"
+                datasource="counterpartiesesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="counterpartiesesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="number"/>
+                <column id="description"/>
+                <column id="address"/>
+                <column id="telephone"/>
+                <column id="email"/>
+                <column id="isClient"/>
+                <column id="isSupplier"/>
+                <column id="note"/>
+            </columns>
+            <rows datasource="counterpartiesesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="counterpartiesesTable.create"/>
+                <button id="editBtn"
+                        action="counterpartiesesTable.edit"/>
+                <button id="removeBtn"
+                        action="counterpartiesesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

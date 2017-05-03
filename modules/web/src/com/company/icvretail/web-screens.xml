@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <include file="com/company/icvretail/screens.xml"/>
+    <screen id="icvretail$Counterparties.browse"
+            template="/com/company/icvretail/web/catalogs/counterparties/counterparties-browse.xml"/>
+    <screen id="icvretail$Counterparties.edit"
+            template="/com/company/icvretail/web/catalogs/counterparties/counterparties-edit.xml"/>
+    <screen id="icvretail$Products.edit"
+            template="/com/company/icvretail/web/catalogs/products/products-edit.xml"/>
+    <screen id="icvretail$Products.browse"
+            template="/com/company/icvretail/web/catalogs/products/products-browse.xml"/>
+    <screen id="icvretail$Warehouses.browse"
+            template="/com/company/icvretail/web/catalogs/warehouses/warehouses-browse.xml"/>
+    <screen id="icvretail$Warehouses.edit"
+            template="/com/company/icvretail/web/catalogs/warehouses/warehouses-edit.xml"/>
+    <screen id="icvretail$Invoices.browse"
+            template="/com/company/icvretail/web/documents/invoice/invoices-browse.xml"/>
+    <screen id="icvretail$Purchases.browse"
+            template="/com/company/icvretail/web/documents/purchase/purchases-browse.xml"/>
+    <screen id="icvretail$InvoiceProductLines.edit"
+            template="/com/company/icvretail/web/documents/invoiceproductlines/invoice-product-lines-edit.xml"/>
+    <screen id="icvretail$PurchaseProductLines.edit"
+            template="com/company/icvretail/web/documents/purchase-product-lines-edit.xml"/>
+    <screen id="icvretail$Invoices.edit"
+            template="com/company/icvretail/web/documents/invoice/invoices-edit.xml"/>
+    <screen id="icvretail$Products.lookup"
+            template="com/company/icvretail/web/catalogs/products/products-lookup.xml"/>
+    <screen id="loginWindow"
+            template="com/company/icvretail/ext-loginWindow.xml"/>
+    <screen id="icvretail$WarehouseBalance.browse"
+            template="com/company/icvretail/web/report/warehouse-balance-browse.xml"/>
+    <screen id="icvretail$Purchases.edit"
+            agent="DESKTOP"
+            template="/com/company/icvretail/web/documents/purchase/purchases-edit.xml"/>
+</screen-config>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="2.0">
+    <persistence-unit name="icvretail"
+                      transaction-type="RESOURCE_LOCAL">
+        <class>com.company.icvretail.entity.catalogs.Products</class>
+        <class>com.company.icvretail.entity.catalogs.Counterparties</class>
+        <class>com.company.icvretail.entity.catalogs.Warehouses</class>
+        <class>com.company.icvretail.entity.documents.invoicedoc.Invoices</class>
+        <class>com.company.icvretail.entity.documents.purchasedoc.Purchases</class>
+        <class>com.company.icvretail.entity.documents.invoicedoc.InvoiceProductLines</class>
+        <class>com.company.icvretail.entity.documents.purchasedoc.PurchaseProductLines</class>
+        <class>com.company.icvretail.entity.registers.WarehouseBalance</class>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.icvretail.web.documents.purchase.PurchasesBrowse"
+        focusComponent="purchasesesTable"
+        lookupComponent="purchasesesTable"
+        messagesPack="com.company.icvretail.web.purchases">
+    <dsContext>
+        <groupDatasource id="purchasesesDs"
+                         class="com.company.icvretail.entity.documents.purchasedoc.Purchases"
+                         view="purchases-view">
+            <query>
+                <![CDATA[select e from icvretail$Purchases e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="purchasesesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="purchasesesTable"
+                datasource="purchasesesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="purchasesesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="number"/>
+                <column id="prefixNumber"/>
+                <column id="description"/>
+                <column id="date"/>
+                <column id="counterparty"/>
+                <column id="warehouse"/>
+                <column id="note"/>
+            </columns>
+            <rows datasource="purchasesesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="purchasesesTable.create"/>
+                <button id="editBtn"
+                        action="purchasesesTable.edit"/>
+                <button id="removeBtn"
+                        action="purchasesesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

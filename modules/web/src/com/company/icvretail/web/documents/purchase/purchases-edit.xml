@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.icvretail.web.documents.purchase.PurchasesEdit"
+        datasource="purchasesDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.icvretail.web.purchases">
+    <dsContext>
+        <datasource id="purchasesDs"
+                    class="com.company.icvretail.entity.documents.purchasedoc.Purchases"
+                    view="purchases-view">
+            <collectionDatasource id="productLinesDs"
+                                  property="productLines"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="purchasesDs">
+            <column width="250px">
+                <field property="number"/>
+                <field property="counterparty"/>
+            </column>
+            <column>
+                <field property="date"/>
+                <field property="warehouse"/>
+            </column>
+        </fieldGroup>
+        <groupBox id="productLinesBox"
+                  caption="msg://com.company.icvretail.entity.documents.purchasedoc/Purchases.productLines">
+            <dataGrid id="productLinesTable"
+                      datasource="productLinesDs"
+                      editable="true"
+                      editorBuffered="true"
+                      editorEnabled="true"
+                      height="409px"
+                      width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                    <action id="createLine"
+                            caption="msg://Create Line"
+                            icon="icons/create.png"
+                            invoke="onCreateLine"/>
+                    <action id="copyLine"
+                            caption="msg://Copy Line"
+                            icon="icons/copy.png"
+                            invoke="onCopyLine"/>
+                    <action id="moveUp"
+                            caption="msg://Move Up"
+                            icon="icons/moveUp.png"
+                            invoke="onMoveUp"/>
+                    <action id="moveDown"
+                            caption="msg://Move Down"
+                            icon="icons/moveDown.png"
+                            invoke="onMoveDown"/>
+                </actions>
+                <columns>
+                    <column property="numLine"
+                            width="50"/>
+                    <column property="product"/>
+                    <column property="quantity"/>
+                    <column property="price"/>
+                    <column property="amount"/>
+                    <column property="discount"/>
+                    <column property="amountDiscount"/>
+                    <column property="note"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="productLinesTable.create"/>
+                    <button action="productLinesTable.edit"/>
+                    <button action="productLinesTable.remove"/>
+                    <button id="createLine"
+                            action="productLinesTable.createLine"
+                            caption="msg://Create line"/>
+                    <button id="copyLineBtn"
+                            action="productLinesTable.copyLine"
+                            caption="msg://Copy line"/>
+                    <button id="moveUpBtn"
+                            action="productLinesTable.moveUp"
+                            caption="Move up"/>
+                    <button id="moveDownBtn"
+                            action="productLinesTable.moveDown"
+                            caption="Move down"/>
+                </buttonsPanel>
+            </dataGrid>
+        </groupBox>
+        <fieldGroup datasource="productLinesDs"
+                    width="100%">
+            <column width="100%">
+                <field property="note"
+                       width="100%"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

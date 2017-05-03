@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.icvretail.web.catalogs.warehouses.WarehousesBrowse"
+        focusComponent="warehousesesTable"
+        lookupComponent="warehousesesTable"
+        messagesPack="com.company.icvretail.web.catalogs.warehouses">
+    <dsContext>
+        <groupDatasource id="warehousesesDs"
+                         class="com.company.icvretail.entity.catalogs.Warehouses"
+                         view="warehouses-view">
+            <query>
+                <![CDATA[select e from icvretail$Warehouses e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="warehousesesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="warehousesesTable"
+                datasource="warehousesesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="warehousesesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="number"/>
+                <column id="description"/>
+                <column id="note"/>
+            </columns>
+            <rows datasource="warehousesesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="warehousesesTable.create"/>
+                <button id="editBtn"
+                        action="warehousesesTable.edit"/>
+                <button id="removeBtn"
+                        action="warehousesesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

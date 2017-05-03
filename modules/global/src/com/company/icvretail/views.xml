@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.company.icvretail.entity.catalogs.Counterparties"
+          extends="_local"
+          name="counterparties-view"/>
+    <view class="com.company.icvretail.entity.catalogs.Products"
+          extends="_local"
+          name="products-view"/>
+    <view class="com.company.icvretail.entity.catalogs.Warehouses"
+          extends="_local"
+          name="warehouses-view"/>
+    <view class="com.company.icvretail.entity.documents.invoicedoc.InvoiceProductLines"
+          extends="_local"
+          name="invoiceProductLines-view">
+        <property name="product"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.icvretail.entity.documents.invoicedoc.Invoices"
+          extends="_local"
+          name="invoices-view">
+        <property name="counterparty"
+                  view="_minimal"/>
+        <property name="warehouse"
+                  view="_minimal"/>
+        <property name="productLines"
+                  view="_minimal">
+            <property name="numLine"/>
+            <property name="product"
+                      view="_minimal"/>
+            <property name="quantity"/>
+            <property name="price"/>
+            <property name="amount"/>
+            <property name="discount"/>
+            <property name="amountDiscount"/>
+            <property name="note"/>
+        </property>
+    </view>
+    <view class="com.company.icvretail.entity.documents.purchasedoc.PurchaseProductLines"
+          extends="_local"
+          name="purchaseProductLines-view">
+        <property name="product"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.icvretail.entity.documents.purchasedoc.Purchases"
+          extends="_local"
+          name="purchases-view">
+        <property name="counterparty"
+                  view="_minimal"/>
+        <property name="warehouse"
+                  view="_minimal"/>
+        <property name="productLines"
+                  view="_minimal">
+            <property name="numLine"/>
+            <property name="product"
+                      view="_minimal"/>
+            <property name="quantity"/>
+            <property name="price"/>
+            <property name="amount"/>
+            <property name="discount"/>
+            <property name="amountDiscount"/>
+            <property name="note"/>
+        </property>
+    </view>
+    <view class="com.company.icvretail.entity.registers.WarehouseBalance"
+          extends="_local"
+          name="warehouseBalance-view">
+        <property name="warehouse"
+                  view="_minimal"/>
+        <property name="product"
+                  view="_minimal"/>
+    </view>
+</views>

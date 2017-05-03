@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.icvretail.web.catalogs.products.ProductsLookup"
+        focusComponent="productsesTable"
+        lookupComponent="productsesTable"
+        messagesPack="com.company.icvretail.web.catalogs.products">
+    <dsContext>
+        <collectionDatasource id="productsesDs"
+                              class="com.company.icvretail.entity.catalogs.Products"
+                              view="products-view">
+            <query>
+                <![CDATA[select e from icvretail$Products e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="productsesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="productsesTable"
+                datasource="productsesDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="productsesTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+            </actions>
+            <columns>
+                <column id="number"/>
+                <column id="description"/>
+                <column id="price"/>
+                <column id="unit"/>
+                <column id="barcode"/>
+                <column id="note"/>
+            </columns>
+            <rows datasource="productsesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="productsesTable.create"/>
+                <button id="editBtn"
+                        action="productsesTable.edit"/>
+                <button id="removeBtn"
+                        action="productsesTable.remove"/>
+                <button id="refreshBtn"
+                        action="productsesTable.refresh"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>
