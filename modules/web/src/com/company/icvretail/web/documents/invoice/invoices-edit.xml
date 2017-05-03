@@ -63,9 +63,11 @@
                     <column property="product"/>
                     <column property="quantity"/>
                     <column property="price"/>
-                    <column property="amount"/>
+                    <column property="amount"
+                    editable="false"/>
                     <column property="discount"/>
-                    <column property="amountDiscount"/>
+                    <column property="amountDiscount"
+                    editable="false"/>/>
                     <column property="note"/>
                 </columns>
                 <buttonsPanel>

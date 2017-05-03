@@ -72,14 +72,20 @@ public class InvoicesEdit extends AbstractEditor<Invoices> {
     }
 
     private void calculateAmount() {
-        BigDecimal amount = BigDecimal.ZERO;
+        BigDecimal total = BigDecimal.ZERO;
         for (InvoiceProductLines line : productLinesDs.getItems()) {
-           BigDecimal total = line.getPrice().multiply(line.getQuantity())
+            BigDecimal amount = line.getPrice().multiply(line.getQuantity())
                     .setScale(2, BigDecimal.ROUND_HALF_UP); // always set scale to the same as defined in the database to avoid modification of the datasource after commit
-            line.setAmount(total);
-            amount = amount.add(line.getAmount());
+            BigDecimal amountDiscount=BigDecimal.ZERO;
+            if (line.getDiscount()!=null) {
+                amountDiscount = amount.multiply(line.getDiscount()).divide(BigDecimal.valueOf(100));
+            }
+            line.setAmountDiscount(amountDiscount);
+            line.setAmount(amount.subtract(amountDiscount));
+
+            total = total.add(line.getAmount());
         }
-        getItem().setTotalAmount(amount);
+        getItem().setTotalAmount(total);
 
     }
     public void onCreateLine(Component source) {
