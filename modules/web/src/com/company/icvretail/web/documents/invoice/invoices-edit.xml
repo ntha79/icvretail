@@ -34,7 +34,8 @@
                       datasource="productLinesDs"
                       editorBuffered="true"
                       editorEnabled="true"
-                      height="509px"
+                      height="500px"
+                      stylename="no-vertical-lines"
                       width="100%">
                 <actions>
                     <action id="create"/>
@@ -63,13 +64,14 @@
                     <column property="product"/>
                     <column property="quantity"/>
                     <column property="price"/>
-                    <column property="amount"
-                    editable="false"/>
+                    <column editable="false"
+                            property="amount"/>
                     <column property="discount"/>
-                    <column property="amountDiscount"
-                    editable="false"/>/>
+                    <column editable="false"
+                            property="amountDiscount"/>
                     <column property="note"/>
                 </columns>
+                <rowsCount/>
                 <buttonsPanel>
                     <button id="createBtn"
                             action="productLinesTable.create"/>

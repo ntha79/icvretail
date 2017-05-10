@@ -24,6 +24,7 @@
             <properties include=".*"/>
         </filter>
         <groupTable id="invoicesesTable"
+                    stylename="no-vertical-lines"
                     width="100%">
             <actions>
                 <action id="create"/>

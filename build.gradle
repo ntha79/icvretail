@@ -235,5 +235,16 @@ task restart(dependsOn: ['stop', ':app-core:deploy', ':app-web:deploy'], descrip
 task wrapper(type: Wrapper) {
     gradleVersion = '3.1'
 }
-
+task buildWar(type: CubaWarBuilding) {
+    appHome = './app_home'
+    singleWar = false
+    includeContextXml = true
+    includeJdbcDriver = true
+    appProperties = [
+            'cuba.automaticDatabaseUpdate': true,
+            'cuba.webPort': 8567,
+            'cuba.connectionUrlList': 'http://localhost:8567/app-core'
+    ]
+}
 apply from: 'extra.gradle'
+

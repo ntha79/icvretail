@@ -35,8 +35,9 @@
                       editable="true"
                       editorBuffered="true"
                       editorEnabled="true"
-                      height="409px"
-                      width="100%">
+                      height="500px"
+                      width="100%"
+                       stylename="no-vertical-lines">
                 <actions>
                     <action id="create"/>
                     <action id="edit"/>
@@ -71,6 +72,7 @@
                             property="amountDiscount"/>
                     <column property="note"/>
                 </columns>
+                <rowsCount/>
                 <buttonsPanel>
                     <button action="productLinesTable.create"/>
                     <button action="productLinesTable.edit"/>

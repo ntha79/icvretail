@@ -117,6 +117,7 @@ public class PurchasesEdit extends AbstractEditor<Purchases> {
 
 
     public void onCopyLine(Component source) {
+        
         PurchaseProductLines curLine = productLinesTable.getSingleSelected();
         PurchaseProductLines newLiner = metadata.create(PurchaseProductLines.class);
         newLiner.setPurchases(getItem());

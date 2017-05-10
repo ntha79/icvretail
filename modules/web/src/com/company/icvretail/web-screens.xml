@@ -32,4 +32,6 @@
     <screen id="icvretail$Purchases.edit"
             agent="DESKTOP"
             template="/com/company/icvretail/web/documents/purchase/purchases-edit.xml"/>
+    <screen id="settings"
+            template="com/company/icvretail/ext-settings-window.xml"/>
 </screen-config>

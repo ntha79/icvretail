@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="com.company.icvretail.ExtSettingsWindow"
+        extends="/com/haulmont/cuba/web/app/ui/core/settings/settings-window.xml"
+        messagesPack="com.company.icvretail">
+    <actions>
+        <action id="saveMenuOption"
+                invoke="onSaveMenuOption"/>
+    </actions>
+    <layout>
+        <groupBox>
+            <grid>
+                <rows>
+                    <row>
+                        <label id="labelMenu type Option"
+                               caption="Menu type Option"/>
+                        <optionsGroup id="menuTypeOption"/>
+                    </row>
+                </rows>
+            </grid>
+        </groupBox>
+        <vbox id="buttons">
+            <buttonsPanel>
+                <button action="saveMenuOption"/>
+            </buttonsPanel>
+        </vbox>
+    </layout>
+</window>

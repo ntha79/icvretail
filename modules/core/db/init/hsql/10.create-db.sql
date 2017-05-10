@@ -94,7 +94,7 @@ create table ICVRETAIL_PURCHASES (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    NUMBER_ varchar(255),
+    NUMBER_ bigint,
     PREFIX_NUMBER varchar(10),
     DESCRIPTION varchar(500),
     DATE_ timestamp,

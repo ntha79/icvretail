@@ -21,9 +21,11 @@
                 <field property="product"/>
                 <field property="quantity"/>
                 <field property="price"/>
-                <field property="amount"/>
+                <field editable="false"
+                       property="amount"/>
                 <field property="discount"/>
-                <field property="amountDiscount"/>
+                <field editable="false"
+                       property="amountDiscount"/>
                 <field property="note"
                        rows="5"/>
             </column>
