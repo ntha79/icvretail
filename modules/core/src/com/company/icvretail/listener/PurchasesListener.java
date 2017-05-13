@@ -7,6 +7,7 @@ import com.haulmont.cuba.core.EntityManager;
 import com.haulmont.cuba.core.Persistence;
 import com.haulmont.cuba.core.Query;
 import com.haulmont.cuba.core.Transaction;
+import com.haulmont.cuba.core.app.UniqueNumbersAPI;
 import com.haulmont.cuba.core.global.Metadata;
 import org.springframework.stereotype.Component;
 import com.haulmont.cuba.core.listener.AfterInsertEntityListener;
@@ -26,9 +27,12 @@ public class PurchasesListener implements AfterInsertEntityListener<Purchases>, 
 
     @Inject
     private Metadata metadata;
-
+    @Inject
+    private UniqueNumbersAPI uniqueNumbers;
     @Override
     public void onAfterInsert(Purchases entity, Connection connection) {
+
+        uniqueNumbers.setCurrentNumber("PurchasesNumber",entity.getNumber());
         deleteBalance(entity);
         updateBalance(entity);
     }

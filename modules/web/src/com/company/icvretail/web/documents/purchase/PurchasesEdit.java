@@ -67,7 +67,7 @@ public class PurchasesEdit extends AbstractEditor<Purchases> {
 
     @Override
     protected void initNewItem(Purchases item) {
-        item.setNumber(unService.getNextNumber("PurchasesNumber"));
+        //item.setNumber(unService.getNextNumber("PurchasesNumber"));
         item.setDate(new Date());
     }
 

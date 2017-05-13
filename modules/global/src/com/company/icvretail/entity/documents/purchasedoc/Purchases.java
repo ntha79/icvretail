@@ -1,7 +1,10 @@
 package com.company.icvretail.entity.documents.purchasedoc;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import com.company.icvretail.service.GenerateDocumentNumberService;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import javax.persistence.Column;
 
@@ -13,6 +16,7 @@ import com.company.icvretail.entity.catalogs.Counterparties;
 import com.company.icvretail.entity.catalogs.Warehouses;
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.AppBeans;
 import com.haulmont.cuba.core.global.DeletePolicy;
 import java.util.List;
 import javax.persistence.OneToMany;
@@ -145,6 +149,10 @@ public class Purchases extends StandardEntity {
         return description;
     }
 
-
+    @PostConstruct
+    protected void init() {
+        Long numb= AppBeans.get(GenerateDocumentNumberService.class).getNextDocumentNumber("PurchasesNumber");
+        setNumber(numb);
+    }
 
 }
