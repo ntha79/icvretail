@@ -7,6 +7,7 @@ import com.company.icvretail.entity.registers.WarehouseBalance;
 import com.haulmont.cuba.core.Persistence;
 import com.haulmont.cuba.core.Query;
 import com.haulmont.cuba.core.Transaction;
+import com.haulmont.cuba.core.app.UniqueNumbersAPI;
 import com.haulmont.cuba.core.global.Metadata;
 import org.springframework.stereotype.Component;
 import com.haulmont.cuba.core.listener.AfterInsertEntityListener;
@@ -24,9 +25,11 @@ public class InvoicesListener implements AfterInsertEntityListener<Invoices>, Af
 
     @Inject
     private Metadata metadata;
-
+    @Inject
+    private UniqueNumbersAPI uniqueNumbers;
     @Override
     public void onAfterInsert(Invoices entity, Connection connection) {
+        uniqueNumbers.setCurrentNumber("InvoicesNumber",entity.getNumber());
         deleteBalance(entity);
         updateBalance(entity);
     }

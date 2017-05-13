@@ -1,11 +1,14 @@
 package com.company.icvretail.entity.documents.invoicedoc;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.company.icvretail.service.GenerateDocumentNumberService;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.chile.core.annotations.NamePattern;
 
@@ -17,6 +20,7 @@ import com.company.icvretail.entity.catalogs.Counterparties;
 import com.company.icvretail.entity.catalogs.Warehouses;
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.AppBeans;
 import com.haulmont.cuba.core.global.DeletePolicy;
 import java.util.List;
 import javax.persistence.Lob;
@@ -148,4 +152,9 @@ public class Invoices extends StandardEntity {
     }
 
 
+    @PostConstruct
+    protected void init() {
+        Long numb= AppBeans.get(GenerateDocumentNumberService.class).getNextDocumentNumber("InvoicesNumber");
+        setNumber(numb);
+    }
 }

@@ -67,7 +67,7 @@ public class InvoicesEdit extends AbstractEditor<Invoices> {
 
     @Override
     protected void initNewItem(Invoices item) {
-        item.setNumber(unService.getNextNumber("InvoicesNumber"));
+        //item.setNumber(unService.getNextNumber("InvoicesNumber"));
         item.setDate(new Date());
     }
 

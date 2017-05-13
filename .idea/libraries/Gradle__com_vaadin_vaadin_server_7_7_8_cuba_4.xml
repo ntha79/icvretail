@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin:vaadin-server:7.7.8.cuba.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-server/7.7.8.cuba.4/992803dbc09a5ad5e27a3addb5a46a2c383b1c71/vaadin-server-7.7.8.cuba.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-server/7.7.8.cuba.4/3a31b5d5a1373817303e72d2e0a423fe17737d0a/vaadin-server-7.7.8.cuba.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
