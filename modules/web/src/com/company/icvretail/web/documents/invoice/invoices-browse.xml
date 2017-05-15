@@ -31,6 +31,10 @@
                 <action id="edit"/>
                 <action id="remove"/>
                 <action id="refresh"/>
+                <action id="baseCreatePurchase"
+                        invoke="onBaseCreatePurchase"/>
+                <action id="copy"
+                        invoke="onCopy"/>
             </actions>
             <columns>
                 <column id="number"/>
@@ -47,12 +51,18 @@
                           alwaysVisible="true">
                 <button id="createBtn"
                         action="invoicesesTable.create"/>
+                <button id="copyBtn"
+                        action="invoicesesTable.copy"
+                        caption="Copy"/>
                 <button id="editBtn"
                         action="invoicesesTable.edit"/>
                 <button id="removeBtn"
                         action="invoicesesTable.remove"/>
                 <button id="refreshBtn"
                         action="invoicesesTable.refresh"/>
+                <button id="baseCreatePurchaseButton"
+                        action="invoicesesTable.baseCreatePurchase"
+                        caption="create Purchase"/>
             </buttonsPanel>
         </groupTable>
     </layout>
