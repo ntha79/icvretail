@@ -50,4 +50,6 @@ public class ProductsBrowse extends AbstractLookup {
 
         productBalanceDetailsDs.refresh(createDatasourceParams(new Date(), product));
     }
+
+   
 }

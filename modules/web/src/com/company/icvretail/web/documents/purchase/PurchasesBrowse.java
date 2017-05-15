@@ -46,6 +46,8 @@ public class PurchasesBrowse extends AbstractLookup {
             }
             invoice.setProductLines(list);
         openEditor("icvretail$Invoices.edit",invoice,WindowManager.OpenType.NEW_WINDOW);
+        }else{
+            showNotification("No selected Purchase for create Invoice.");
         }
 
     }
@@ -71,6 +73,8 @@ public class PurchasesBrowse extends AbstractLookup {
             }
             purchaseNew.setProductLines(list);
             openEditor("icvretail$Purchases.edit",purchaseNew,WindowManager.OpenType.NEW_WINDOW);
+        }else{
+            showNotification("No selected Purchase for Copy.");
         }
     }
 }

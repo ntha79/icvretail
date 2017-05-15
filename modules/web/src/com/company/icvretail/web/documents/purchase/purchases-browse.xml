@@ -50,18 +50,23 @@
                           alwaysVisible="true">
                 <button id="createBtn"
                         action="purchasesesTable.create"/>
-                <button id="copyBtn"
-                        action="purchasesesTable.copy"
-                        caption="Copy"/>
                 <button id="editBtn"
                         action="purchasesesTable.edit"/>
                 <button id="removeBtn"
                         action="purchasesesTable.remove"/>
-                <button id="baseCreateInvoiceButton"
-                        action="purchasesesTable.baseCreateInvoice"
-                        caption="Create invoice"/>
                 <button id="refreshBtn"
                         action="purchasesesTable.refresh"/>
+                <popupButton id="createGroupBtn"
+                             caption="Create more">
+                    <actions>
+                        <action id="copy"
+                                caption="Copy"
+                                invoke="onCopy"/>
+                        <action id="baseCreateInvoice"
+                                caption="Create Invoice"
+                                invoke="onBaseCreateInvoice"/>
+                    </actions>
+                </popupButton>
             </buttonsPanel>
         </groupTable>
     </layout>
