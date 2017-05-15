@@ -3,7 +3,6 @@
     <menu id="Sales"
           insertBefore="administration">
         <item screen="icvretail$Invoices.browse"/>
-        <item screen="icvretail$WarehouseBalance.browse"/>
     </menu>
     <menu id="Purchasing"
           insertBefore="administration">
@@ -17,5 +16,6 @@
     </menu>
     <menu id="reports"
           insertBefore="administration">
+        <item screen="icvretail$WarehouseBalance.browse"/>
     </menu>
 </menu-config>
