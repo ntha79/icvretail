@@ -12,6 +12,8 @@
             <map>
                 <entry key="icvretail_GenerateDocumentNumberService"
                        value="com.company.icvretail.service.GenerateDocumentNumberService"/>
+                <entry key="icvretail_ProductBalanceService"
+                       value="com.company.icvretail.service.ProductBalanceService"/>
             </map>
         </property>
     </bean>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <metadata xmlns="http://schemas.haulmont.com/cuba/metadata.xsd">
-
-    <metadata-model root-package="com.company.icvretail" namespace="icvretail"/>
-
+    <metadata-model namespace="icvretail"
+                    root-package="com.company.icvretail">
+        <class>com.company.icvretail.entity.catalogs.ProductBalanceDetail</class>
+    </metadata-model>
 </metadata>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.company.icvretail.web.warehousebalance.WarehouseBalanceBrowse"
+        focusComponent="warehouseBalancesTable"
+        lookupComponent="warehouseBalancesTable"
+        messagesPack="com.company.icvretail.web.warehousebalance">
+    <dsContext>
+        <datasource id="warehouseBalanceDs"
+                    class="com.company.icvretail.entity.registers.WarehouseBalance"
+                    view="_local"/>
+        <groupDatasource id="warehouseBalancesDs"
+                         class="com.company.icvretail.entity.registers.WarehouseBalance"
+                         view="_local">
+            <query>
+                <![CDATA[select e from icvretail$WarehouseBalance e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <actions>
+        <action id="save"
+                caption="mainMsg://actions.Ok"
+                icon="icons/ok.png"
+                invoke="save"
+                shortcut="CTRL-ENTER"/>
+        <action id="cancel"
+                caption="mainMsg://actions.Cancel"
+                icon="icons/cancel.png"
+                invoke="cancel"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout>
+        <split id="split"
+               height="100%"
+               orientation="horizontal"
+               reversePosition="true"
+               width="100%">
+            <vbox id="lookupBox"
+                  expand="warehouseBalancesTable"
+                  height="100%"
+                  margin="false,true,false,false"
+                  spacing="true">
+                <filter id="filter"
+                        applyTo="warehouseBalancesTable"
+                        datasource="warehouseBalancesDs">
+                    <properties include=".*"/>
+                </filter>
+                <groupTable id="warehouseBalancesTable"
+                            width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="recorder"/>
+                        <column id="period"/>
+                        <column id="recordType"/>
+                        <column id="numLine"/>
+                        <column id="quantity"/>
+                        <column id="amount"/>
+                        <column id="note"/>
+                    </columns>
+                    <rows datasource="warehouseBalancesDs"/>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn"
+                                action="warehouseBalancesTable.create"/>
+                        <button id="editBtn"
+                                action="warehouseBalancesTable.edit"/>
+                        <button id="removeBtn"
+                                action="warehouseBalancesTable.remove"/>
+                    </buttonsPanel>
+                </groupTable>
+            </vbox>
+            <vbox id="editBox"
+                  expand="fieldGroupBox"
+                  height="100%"
+                  margin="false,false,false,true"
+                  spacing="true">
+                <vbox id="fieldGroupBox">
+                    <fieldGroup id="fieldGroup"
+                                datasource="warehouseBalanceDs">
+                        <column width="250px">
+                            <field property="recorder"/>
+                            <field property="period"/>
+                            <field property="recordType"/>
+                            <field property="numLine"/>
+                            <field property="quantity"/>
+                            <field property="amount"/>
+                            <field property="note"
+                                   rows="5"/>
+                        </column>
+                    </fieldGroup>
+                </vbox>
+                <hbox id="actionsPane"
+                      spacing="true"
+                      visible="false">
+                    <button id="saveBtn"
+                            action="save"/>
+                    <button id="cancelBtn"
+                            action="cancel"/>
+                </hbox>
+            </vbox>
+        </split>
+    </layout>
+</window>

@@ -27,11 +27,11 @@
             template="com/company/icvretail/web/catalogs/products/products-lookup.xml"/>
     <screen id="loginWindow"
             template="com/company/icvretail/ext-loginWindow.xml"/>
-    <screen id="icvretail$WarehouseBalance.browse"
-            template="com/company/icvretail/web/report/warehouse-balance-browse.xml"/>
     <screen id="icvretail$Purchases.edit"
             agent="DESKTOP"
             template="/com/company/icvretail/web/documents/purchase/purchases-edit.xml"/>
     <screen id="settings"
             template="com/company/icvretail/ext-settings-window.xml"/>
+    <screen id="icvretail$WarehouseBalance.browse"
+            template="com/company/icvretail/web/warehousebalance/warehouse-balance-browse.xml"/>
 </screen-config>

@@ -13,42 +13,65 @@
                 <![CDATA[select e from icvretail$Products e]]>
             </query>
         </groupDatasource>
+        <collectionDatasource id="productBalanceDetailsDs"
+                              allowCommit="false"
+                              class="com.company.icvretail.entity.catalogs.ProductBalanceDetail"
+                              datasourceClass="com.company.icvretail.web.catalogs.products.ProductBalanceDetailDatasource"/>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="productsesTable"
+    <layout expand="split"
             spacing="true">
         <filter id="filter"
                 applyTo="productsesTable"
                 datasource="productsesDs">
             <properties include=".*"/>
         </filter>
-        <groupTable id="productsesTable"
-                    width="100%">
-            <actions>
-                <action id="create"/>
-                <action id="edit"/>
-                <action id="remove"/>
-            </actions>
-            <columns>
-                <column id="number"/>
-                <column id="description"/>
-                <column id="price"/>
-                <column id="unit"/>
-                <column id="barcode"/>
-                <column id="note"/>
-            </columns>
-            <rows datasource="productsesDs"/>
-            <rowsCount/>
-            <buttonsPanel id="buttonsPanel"
-                          alwaysVisible="true">
-                <button id="createBtn"
-                        action="productsesTable.create"/>
-                <button id="editBtn"
-                        action="productsesTable.edit"/>
-                <button id="removeBtn"
-                        action="productsesTable.remove"/>
-            </buttonsPanel>
-        </groupTable>
+        <split id="split"
+               orientation="vertical"
+               pos="80"
+               responsive="true"
+               width="100%">
+            <groupTable id="productsesTable"
+                        height="100%"
+                        width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                    <action id="refresh"/>
+                </actions>
+                <columns>
+                    <column id="number"/>
+                    <column id="description"/>
+                    <column id="price"/>
+                    <column id="unit"/>
+                    <column id="barcode"/>
+                    <column id="note"/>
+                </columns>
+                <rows datasource="productsesDs"/>
+                <rowsCount/>
+                <buttonsPanel id="buttonsPanel"
+                              alwaysVisible="true">
+                    <button id="createBtn"
+                            action="productsesTable.create"/>
+                    <button id="editBtn"
+                            action="productsesTable.edit"/>
+                    <button id="removeBtn"
+                            action="productsesTable.remove"/>
+                    <button id="refreshBtn"
+                            action="productsesTable.refresh"/>
+                </buttonsPanel>
+            </groupTable>
+            <dataGrid id="productBalanceDetailTable"
+                      datasource="productBalanceDetailsDs"
+                      height="100%"
+                      width="100%">
+                <columns>
+                    <column property="wareHouse"/>
+                    <column property="balance"/>
+                </columns>
+            </dataGrid>
+        </split>
     </layout>
 </window>
